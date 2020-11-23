@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var json = {
+			"id" : "1",
+			"name" : "abcaaa",
+			"hobby" : "wevwaaa"
+		};
+		/*
+		$.ajax({
+			type : "POST",
+			async: true ,
+			url : "../restful/api/user",
+			data : JSON.stringify(json),
+			dataType : "json",
+			contentType: "application/json",
+			cache : false,
+			success : function(data) {
+				console.log(data);
+			},
+			error : function() {
+				
+			}
+		}) */
+		$.ajax({
+			type : "GET",
+			async: true ,
+			url : "../restful/api/userList",
+			cache : false,
+			success : function(data) {
+				var list = data;
+				var html = "";
+				for (var i = 0; i < list.length; i++) {
+					html += "<tr>";
+					html += "<td>"+list[i].id+"</td>";
+					html += "<td>"+list[i].name+"</td>";
+					html += "<td>"+list[i].hobby+"</td>";
+					html += "</tr>";
+				}
+				
+				$("table > tbody").append(html);
+			},
+			error : function() {
+				
+			}
+		})
+	});
+</script>
+</head>
+<body>
+	<table>
+		<tbody>
+			
+		</tbody>
+	</table>
+</body>
+</html>
