@@ -215,7 +215,7 @@ var checkId = 0;
 			   <select name= "birth_mon">	
 			   </select>
 			   <select name= "birth_day">
-			   </select> <br><br>
+			   </select> <br><br><br>
 			   <label>Address <span class="small">自宅を住所</span> </label> 
 			   <input type="text" name="address" id="address" /><br>
 			<button type="button" onclick="javascript:memberSave(); return false;">会員登録</button>
