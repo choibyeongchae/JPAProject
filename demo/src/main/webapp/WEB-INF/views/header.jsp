@@ -4,7 +4,7 @@
 <html>
 <script type="text/javascript">
 	$(function () {
-		if (localStorage.getItem("userInfo") != "" && localStorage.getItem("userInfo") != null) {
+		if (sessionStorage.getItem("userInfo") != "" && sessionStorage.getItem("userInfo") != null) {
 			$(".jwtlogin").before('<a href="javascript:void(0);" onclick = "javascript:logout(this);" class="primary-btn top-btn logout"><i class="fa fa-ticket"></i> ログアウト</a>');
 			$(".jwtlogin").hide();
 			$(".memberregist").hide();
@@ -12,7 +12,7 @@
 	});
 	
 	function logout() {
-		localStorage.removeItem("userInfo");
+		sessionStorage.removeItem("userInfo");
 		location.href = "/";
 	}
 </script>

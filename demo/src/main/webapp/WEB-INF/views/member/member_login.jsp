@@ -23,7 +23,7 @@
 				console.log(data);
 				if (data.result != "fail") {
 					alert("正常に処理されました。");
-					localStorage.setItem('userInfo', JSON.stringify({ email: data.email,token : data.token }));
+					sessionStorage.setItem('userInfo', JSON.stringify({ email: data.email,token : data.token }));
 					location.href = "/";
 				} else {
 					localStorage["userInfo"] = "";
