@@ -26,15 +26,15 @@
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="./index">
+                <a href="/">
                     <img src="../resources/img/logo.png" alt="">
                 </a>
             </div>
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/product/productList">Product</a></li>
                         <li><a href="./speaker.html">Speakers</a>
                             <ul class="dropdown">
                                 <li><a href="#">Jayden</a></li>

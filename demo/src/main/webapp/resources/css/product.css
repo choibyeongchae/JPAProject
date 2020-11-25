@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.new {
+	background-color : black; color : white; margin-left : 5px;
+}
+
+.carousel-item img {
+	width : 100% !important;
+	height : 350px !important;
+}
+
+.pagenation {
+	overflow : hidden;
+	width : 100%;
+}
+
+.pagenation ul{
+	width : 100px;
+	overflow : hidden;
+	margin : 0 auto;
+	list-style:none;
+    padding:0;
+}
+
+.pagenation ul li{
+	list-style:none;
+	margin-left : 5px;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+}

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../resources/css/style.css" type="text/css">
     <link rel="stylesheet" href="../resources/css/member.css" type="text/css">
     <link rel="stylesheet" href="../resources/css/loginForm.css" type="text/css">
+    <link rel="stylesheet" href="../resources/css/product.css" type="text/css">
 
 	
     <!-- Js Plugins -->
