@@ -24,7 +24,6 @@
 			contentType : 'application/json',
 			dataType : 'json',
 			success : function(data) {
-				console.log(data);
 				var list = data.content;
 				var pages = data.totalPages;
 				for (var i = 0; i < list.length; i++) {
@@ -35,9 +34,9 @@
 					listHtml += "	<div class='card-body'>";
 					listHtml += "		<h4 class='card-title'>";
 					if (list[i].newYn == "Y") {
-						listHtml += "		<a href='#'>"+ list[i].prdnm +"<span class = 'new'>NEW</span></a>";
+						listHtml += "		<a href='/product/productDetail?prdno="+list[i].prdno+"'>"+ list[i].prdnm +"<span class = 'new'>NEW</span></a>";
 					} else {
-						listHtml += "		<a href='#'>"+ list[i].prdnm +"</a>";
+						listHtml += "		<a href='/product/productDetail?prdno="+list[i].prdno+"'>"+ list[i].prdnm +"</a>";
 					}
 					listHtml += "		<h5>"+list[i].prdPrice+"</h5>";
 					listHtml += "		<p class='card-text'>"+list[i].prdDesc+"</p>";
@@ -64,32 +63,7 @@
 					$(".row").eq(1).append(listHtml);
 				}
 				
-				var pagesHtml = "";
-				var pageBlock = 5;
-				var startPage = Math.floor(((pageNum-1)/pageBlock))*pageBlock+1;
-				var endPage = startPage + pageBlock - 1;
-				if (endPage > pages) {
-					endPage = pages;
-				}
-				
-				if (startPage > pageBlock) {
-					pagesHtml += "<li><a href=/product/productList?pageNum="+(startPage - 1)+">prev</a></li>";
-				}
-				
-				for (var j = startPage; j <= endPage; j++) {
-					
-					if (j == pageNum) {
-						pagesHtml += "<li>"+j+"</li>";
-					} else {
-						pagesHtml += "<li><a href=/product/productList?pageNum="+j+">"+j+"</a></li>";
-					}
-				}
-				
-				if (endPage < pages) {
-					pagesHtml += "<li><a href=/product/productList?pageNum="+(startPage + 5)+">next</a></li>";
-				}
-				
-				$(".pagenation ul").append(pagesHtml);
+				goPaging(pageNum,5,"product/productList",pages,".pagenation");
 			},
 			error : function(error) {
 				alert(error);

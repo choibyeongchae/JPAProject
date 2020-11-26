@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="../resources/css/member.css" type="text/css">
     <link rel="stylesheet" href="../resources/css/loginForm.css" type="text/css">
     <link rel="stylesheet" href="../resources/css/product.css" type="text/css">
-
 	
     <!-- Js Plugins -->
     <script src="../resources/js/jquery-3.3.1.min.js"></script>
@@ -36,5 +35,6 @@
     <script src="../resources/js/jquery.slicknav.js"></script>
     <script src="../resources/js/owl.carousel.min.js"></script>
     <script src="../resources/js/main.js"></script>
+    <script src="../resources/js/pagejs.js"></script>
 </head>
 </html>
