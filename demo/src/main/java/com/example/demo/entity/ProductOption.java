@@ -33,9 +33,6 @@ public class ProductOption {
 	Integer optStock;
 	
 	@Column
-	Integer optPrice;
-	
-	@Column
 	String optMain;
 	
 	@Column
@@ -54,12 +51,11 @@ public class ProductOption {
 	private Date updDate;
 	
 	public ProductOption(Integer optno,String optNm, Integer optStock,
-			Integer optPrice, String optMain, Integer salqty,
+			String optMain, Integer salqty,
 			String optImgnm, String optImgurl) {
 		this.optno = optno;
 		this.optNm = optNm;
 		this.optStock = optStock;
-		this.optPrice = optPrice;
 		this.optMain = optMain;
 		this.salqty = salqty;
 		this.optImgnm = optImgnm;

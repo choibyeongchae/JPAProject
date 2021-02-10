@@ -9,6 +9,7 @@
 <script type="text/javascript">
 	$(function(){
 		var pageNum = '${pageNum}';
+		$(".nav-menu ul li").eq(1).addClass("active");
 		getList(pageNum);
 		getBannerList();
 	})
@@ -30,7 +31,7 @@
 					var listHtml = "<div class='col-lg-4 col-md-6 mb-4'>";
 					var imgUrl = list[i].prdImgurl +"/" +list[i].prdImgnm;
 					listHtml += "<div class='card h-100'>";
-					listHtml += "	<a href='#'><img class='card-img-top' src='.."+imgUrl+"' height = '200px' alt=''></a>";
+					listHtml += "	<a href='/product/productDetail?prdno="+list[i].prdno+"'><img class='card-img-top' src='.."+imgUrl+"' height = '200px' alt=''></a>";
 					listHtml += "	<div class='card-body'>";
 					listHtml += "		<h4 class='card-title'>";
 					if (list[i].newYn == "Y") {
@@ -63,7 +64,7 @@
 					$(".row").eq(1).append(listHtml);
 				}
 				
-				goPaging(pageNum,5,"product/productList",pages,".pagenation");
+				goPaging(pageNum,5,"product/productList",pages,".page",'page-item');
 			},
 			error : function(error) {
 				alert(error);
@@ -154,8 +155,8 @@
 
     </div>
     <!-- /.row -->
-	<div class = 'pagenation'>
-		<ul>
+	<div class = 'page'>
+		<ul class = 'pagination'>
 		</ul>
 	</div>
   </div>

@@ -9,12 +9,12 @@
 	height : 350px !important;
 }
 
-.pagenation {
+.page {
 	overflow : hidden;
 	width : 100%;
 }
 
-.pagenation ul{
+.page ul{
 	width : 100px;
 	overflow : hidden;
 	margin : 0 auto;
@@ -22,10 +22,11 @@
     padding:0;
 }
 
-.pagenation ul li{
+.page ul li{
 	list-style:none;
 	margin-left : 5px;
     padding: 0 0 0 0;
     border : 0;
     float: left;
+    margin-bottom : 5px;
 }

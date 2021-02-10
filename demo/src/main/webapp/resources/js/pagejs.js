@@ -2,7 +2,7 @@
  * 
  */
 
-var goPaging = function(pageNum,pageBlock,url,totalPages,element) {
+var goPaging = function(pageNum,pageBlock,url,totalPages,element,className) {
 
 	var startPage = Math.floor(((pageNum-1)/pageBlock))*pageBlock+1;
 	var endPage = startPage + pageBlock - 1;
@@ -13,20 +13,20 @@ var goPaging = function(pageNum,pageBlock,url,totalPages,element) {
 	}
 	
 	if (startPage > pageBlock) {
-		pagesHtml += "<li><a href=/"+url+"?pageNum="+(startPage - 1)+">prev</a></li>";
+		pagesHtml += "<li class='"+className+"'><a class = 'page-link' href=/"+url+"?pageNum="+(startPage - 1)+">prev</a></li>";
 	}
 	
 	for (var i = startPage; i <= endPage; i++) {
 		
 		if (i == pageNum) {
-			pagesHtml += "<li>"+i+"</li>";
+			pagesHtml += "<li class='"+className+" active'><a class = 'page-link'>"+i+"</a></li>";
 		} else {
-			pagesHtml += "<li><a href=/"+url+"?pageNum="+i+">"+i+"</a></li>";
+			pagesHtml += "<li class='"+className+"'><a class = 'page-link' href=/"+url+"?pageNum="+i+">"+i+"</a></li>";
 		}
 	}
 	
 	if (endPage < totalPages) {
-		pagesHtml += "<li><a href=/"+url+"?pageNum="+(startPage + 5)+">next</a></li>";
+		pagesHtml += "<li class='"+className+"'><a class = 'page-link' href=/"+url+"?pageNum="+(startPage + 5)+">next</a></li>";
 	}
 	
 	$(element+" ul").append(pagesHtml);

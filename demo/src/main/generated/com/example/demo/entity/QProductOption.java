@@ -31,8 +31,6 @@ public class QProductOption extends EntityPathBase<ProductOption> {
 
     public final NumberPath<Integer> optPrdno = createNumber("optPrdno", Integer.class);
 
-    public final NumberPath<Integer> optPrice = createNumber("optPrice", Integer.class);
-
     public final NumberPath<Integer> optStock = createNumber("optStock", Integer.class);
 
     public final DatePath<java.sql.Date> regDate = createDate("regDate", java.sql.Date.class);

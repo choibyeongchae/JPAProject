@@ -36,5 +36,6 @@
     <script src="../resources/js/owl.carousel.min.js"></script>
     <script src="../resources/js/main.js"></script>
     <script src="../resources/js/pagejs.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 </html>

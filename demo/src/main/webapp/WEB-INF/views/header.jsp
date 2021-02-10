@@ -33,7 +33,7 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="/product/productList">Product</a></li>
                         <li><a href="./speaker.html">Speakers</a>
                             <ul class="dropdown">

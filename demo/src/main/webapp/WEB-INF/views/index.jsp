@@ -5,6 +5,12 @@
 <head>
 	<jsp:include page="head.jsp"/>
     <title>Manup | Template</title>
+    <script type="text/javascript">
+    	$(function() {
+    		$(".nav-menu ul li").eq(0).addClass("active");
+    	})
+    
+    </script>
 </head>
 
 <body>
