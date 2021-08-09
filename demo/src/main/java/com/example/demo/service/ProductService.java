@@ -20,4 +20,6 @@ public interface ProductService {
 	public List<ProductDetailDto> getProductInfo(Integer prdno) throws Exception;
 	
 	public Map<String,Object>  upProductLike(Integer prdno) throws Exception;
+	
+	public Page<Product> getSearchList(String keyword, Integer pageNum) throws Exception;
 }

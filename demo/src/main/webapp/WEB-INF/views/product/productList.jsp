@@ -117,6 +117,70 @@
 		});
 	}
 	
+	function goSearch(pageNum) {
+		var keyword = $("#keyword").val();
+		
+		if (keyword == "" || keyword == null) {
+			alert("キーワードを入力してください。");
+			return;
+		}
+		
+		$.ajax({
+			type : "GET",
+			url : "./getSearchList",
+			data : {
+				"keyword" : escape(keyword),
+				"pageNum" : pageNum
+			},
+			cache : false,
+			contentType : 'application/json',
+			dataType : 'json',
+			success : function(data) {
+				var list = data.content;
+				var pages = data.totalPages;
+				$(".row").eq(1).empty();
+				for (var i = 0; i < list.length; i++) {
+					var listHtml = "<div class='col-lg-4 col-md-6 mb-4'>";
+					var imgUrl = list[i].prdImgurl +"/" +list[i].prdImgnm;
+					listHtml += "<div class='card h-100'>";
+					listHtml += "	<a href='/product/productDetail?prdno="+list[i].prdno+"'><img class='card-img-top' src='.."+imgUrl+"' height = '200px' alt=''></a>";
+					listHtml += "	<div class='card-body'>";
+					listHtml += "		<h4 class='card-title'>";
+					if (list[i].newYn == "Y") {
+						listHtml += "		<a href='/product/productDetail?prdno="+list[i].prdno+"'>"+ list[i].prdnm +"<span class = 'new'>NEW</span></a>";
+					} else {
+						listHtml += "		<a href='/product/productDetail?prdno="+list[i].prdno+"'>"+ list[i].prdnm +"</a>";
+					}
+					listHtml += "		<h5>"+list[i].prdPrice+"</h5>";
+					listHtml += "		<p class='card-text'>"+list[i].prdDesc+"</p>";
+					listHtml += "	</div>";
+					listHtml += "	<div class='card-footer'>";
+					if (list[i].prdAvg == 5) {
+						listHtml += "		<small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9733;</small>";
+					} else if (list[i].prdAvg == 4) {
+						listHtml += "		<small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9734;</small>";
+					} else if (list[i].prdAvg == 3) {
+						listHtml += "		<small class='text-muted'>&#9733; &#9733; &#9733; &#9734; &#9734;</small>";
+					} else if (list[i].prdAvg == 2) {
+						listHtml += "		<small class='text-muted'>&#9733; &#9733; &#9734; &#9734; &#9734;</small>";
+					} else if (list[i].prdAvg == 1) {
+						listHtml += "		<small class='text-muted'>&#9733; &#9734; &#9734; &#9734; &#9734;</small>";
+					} else {
+						listHtml += "		<small class='text-muted'>&#9734; &#9734; &#9734; &#9734; &#9734;</small>";
+					}
+					listHtml += "	</div>";
+					listHtml += "</div>";
+					listHtml += "</div>";
+					
+					$(".row").eq(1).append(listHtml);
+				}
+				
+				goPaging(pageNum,5,"product/getSearchList",pages,".page",'page-item');
+			}
+		});
+		
+	}
+	
 </script>
 </head>
 <body>
@@ -140,7 +204,12 @@
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-
+		
+		<div id = "search">
+			商品を探す<input type = "text" id = "keyword" />
+			<button id = "searchBtn" onclick="goSearch(1)">検索</button>
+		</div>
+		
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
         
         </div>

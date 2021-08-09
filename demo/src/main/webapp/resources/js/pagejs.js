@@ -29,6 +29,7 @@ var goPaging = function(pageNum,pageBlock,url,totalPages,element,className) {
 		pagesHtml += "<li class='"+className+"'><a class = 'page-link' href=/"+url+"?pageNum="+(startPage + 5)+">next</a></li>";
 	}
 	
+	$(element+" ul").empty();
 	$(element+" ul").append(pagesHtml);
 	
 }

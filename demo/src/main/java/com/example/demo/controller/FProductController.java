@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -156,5 +158,25 @@ public class FProductController {
 		}
 		
 		return rtnMap;
+	}
+	
+	@RequestMapping(value ="/getSearchList",method=RequestMethod.GET)
+	@ResponseBody
+	@Transactional
+	public Page<Product> getSearchResult(Model model,@RequestParam(value = "keyword") String keyword, @RequestParam(value ="pageNum", required=false) Integer pageNum, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		if (pageNum == null) {
+			pageNum = 1;
+		}
+
+		Page<Product> searchResult = null;
+
+		try {
+			searchResult = productService.getSearchList(keyword, pageNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return searchResult;
 	}
 }

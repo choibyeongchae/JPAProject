@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -146,6 +147,27 @@ public class ProductServiceImpl implements ProductService{
 		map.put("likecnt",prd.getLikeCnt()+1);
 		
 		return map;
+	}
+
+	@Override
+	public Page<Product> getSearchList(String keyword, Integer pageNum) throws Exception {
+		QProduct product = QProduct.product;
+		
+		BooleanBuilder builder = new BooleanBuilder();
+		builder.and(product.prdnm.like("%"+keyword+"%"));
+		
+		Pageable pageable = PageRequest.of(pageNum-1, 5);
+		
+		List<Product> list = queryFactory.selectFrom(product)
+				.where(builder)
+				.offset(pageable.getOffset())
+				.limit(pageable.getPageSize())
+				.orderBy(product.regDate.desc())
+				.fetch();
+		
+		long totalCount = queryFactory.selectFrom(product).where(builder).fetchCount();
+		
+		return new PageImpl<Product>(list, pageable, totalCount);
 	}
 
 	
